@@ -1,0 +1,712 @@
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EE1WYVNPW6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EE1WYVNPW6');
+</script>
+  <meta name="google-site-verification" content="Xf81t5VvdrqQKBol86lw9d2jSnpvIk8mEup81_OdmDA" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blogs & News Website</title>
+  <style>
+        .main-nav {
+        background-color: #012149;
+          display: flex;
+        justify-content: center;
+
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 2px solid #ddd;
+   position: fixed; /* Make the navbar fixed */
+    top: 0; /* Stick it to the top */
+    left: 0;
+    width: 100%; /* Ensure it spans full width */
+    z-index: 1000; /* Keep it above other elements */
+    }
+    
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        max-width: 1200px;
+        
+    }
+    
+    /* Navigation Links */
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 25px;
+        margin: 0;
+        padding: 0;
+        
+    }
+    
+    .nav-links li {
+        font-size: 25px;
+        font-weight: bold;
+    }
+    
+    .nav-links a {
+        text-decoration: none;
+        color: white;
+        padding: 5px;
+        transition: 0.3s;
+    }
+    
+    .nav-links .active a {
+        border-bottom: 4px solid #ff4d00;
+    }
+    
+    .nav-links a:hover {
+        color: #ffcc00;
+    }
+    
+    /* ======= LOGO ======= */
+    .logo {
+        font-size: 75px;
+        color: white;
+        font-weight: bold;
+        text-align: right;
+    }
+    
+    /* ======= HAMBURGER MENU (MOBILE) ======= */
+    .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+    }
+    
+    /* ======= SUB NAVIGATION ======= */
+    .sub-nav {
+        background-color: #003366;
+        padding: 10px 20px;
+        font-size: 35px;
+
+
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 2px solid #ddd;
+    position: fixed; /* Make the navbar fixed */
+    top: 0; /* Stick it to the top */
+    left: 0;
+    width: 100%; /* Ensure it spans full width */
+    z-index: 1000; /* Keep it above other elements */
+    margin-top: 15vh;
+
+    }
+    
+    .sub-nav ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+    }
+    
+    .sub-nav a {
+        text-decoration: none;
+        color: white;
+        font-size: 14px;
+        transition: 0.3s;
+    }
+    
+    .sub-nav a:hover {
+        color: #ffcc00;
+    }
+    
+    /* ======= RESPONSIVE DESIGN ======= */
+    @media (max-width: 768px) {
+        .main-nav {
+       
+            background-color: #012149;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+
+    }
+    
+      .sub-nav {
+        background-color: #003366;
+        padding: 10px 20px;
+        font-size: 35px;
+        margin: -1.5vh;
+        margin-top: 12vh;
+        }
+    .logo {
+    font-size: 38px;
+    }
+        
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background: #002e69;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+        }
+    
+        .nav-links.show {
+            display: flex;
+        }
+    
+        .menu-toggle {
+            display: block;
+        }
+    
+        .sub-nav ul {
+            flex-direction: row;
+            text-align: left;
+            font-size: 1px;
+        }
+    }
+ 
+  
+
+    /* CSS Styles */
+ body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+      margin-top: 28vh;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+
+}
+
+    /* Blog Post Styles */
+    .blog-post {
+      display: flex;
+      align-items: flex-start;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    /* Fixed Card Box with Image */
+    .card-box {
+      width: 200px; /* Fixed width for the card box */
+      height: 200px; /* Fixed height for the card box */
+      flex-shrink: 0; /* Prevent the card from shrinking */
+    }
+    .card-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensure the image covers the card box */
+    }
+
+    /* Text Content */
+    .content {
+      padding: 20px;
+      flex-grow: 1; /* Allow the content to take up remaining space */
+    }
+
+    .content h2 {
+      margin: 0 0 10px;
+      font-size: 1.5rem;
+    }
+
+    .content p {
+      margin: 0 0 15px;
+      color: #666;
+    }
+
+    .content a {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #1E3A8A;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .content a:hover {
+      background: #152C5B;
+    }
+     
+    
+    
+ vertical-line {
+    width: 5px;
+    background: linear-gradient(to bottom, #1E3A8A, #4F46E5);
+    margin-right: 20px;
+  }
+    header {
+      background: #1E3A8A;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .gradient-line {
+    background: linear-gradient(to bottom, transparent 90%, #1E3A8A 10%);
+    padding-bottom: 10px;
+  }
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+          }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .blog-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .blog-card h3 {
+      margin: 15px;
+      font-size: 1.5rem;
+    }
+
+    .blog-card p {
+      margin: 0 15px 15px;
+      color: #666;
+    }
+
+    .blog-card a {
+      display: inline-block;
+      margin: 0 15px 15px;
+      padding: 10px 20px;
+      background: #1E3A8A;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .blog-card a:hover {
+      background: #152C5B;
+    }
+
+  
+     hr {
+    border: 0;
+    height: 2px;
+    background: #1E3A8A;
+    margin: 20px 0;
+  }@media (max-width: 600px) {
+  .blog-post {
+    flex-direction: column;
+  }
+  .card-box {
+    width: 100%;
+    height: 150px;
+  }
+}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+ 
+  
+  
+  
+  
+
+
+
+
+  <nav class="main-nav">
+    <div class="nav-container">
+        <ul class="nav-links">
+            <li class="active"><a href="#">News</a></li>
+            <li><a href="#">Opiniofusan</a></li>
+            <li><a href="https://nouman007pro.github.io/viora4-sports/">Sport</a></li>
+            <li><a href="">Culture</a></li>
+            <li><a href="">Lifestyle</a></li>
+        </ul>
+        <flip-btn class="menu-toggle" onclick="toggleMenu()">☰</flip-btn>
+        <div class="logo">Viora<span>4</span></div>
+    </div>
+</nav>
+
+<!-- Sub Navigation -->
+<nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li class="active"><a href="#">News</a></li>
+               <li><a href="https://nouman007pro.github.io/viora4-sports/">Sport</a></li>
+            <li><a href="https://nouman007pro.github.io/viora4-fashion/">Lifestyle</a></li>
+            <li><a href="https://nouman007pro.github.io/viora4-blogs/">Blogs</a></li>
+
+            </ul>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <div class="logo">Viora<span>4</span></div>
+        </div>
+    </nav>
+
+    <!-- Sub Navigation -->
+    <nav class="sub-nav">
+        <ul>
+            <li><a href="https://nouman007pro.github.io/viora4-worldnews/">World</a></li>
+            <li><a href="https://nouman007pro.github.io/viora4-usa/">US Politics</a></li>
+            <li><a href="https://nouman007pro.github.io/viora4-uk/">UK</a></li></li>
+            <li><a href="https://nouman007pro.github.io/viora4-climatecrisis/">Climate Crisis</a></li>
+            <li><a href="https://nouman007pro.github.io/viora4-middleeast/">Middle East</a></li>
+            <li><a href="https://nouman007pro.github.io/viora4-fashion/">Lifestyle</a></li>
+            <li><a href="https://nouman007pro.github.io/viora4-sports/">Sports</a></li>
+<li><a href="https://nouman007pro.github.io/viora.github.io/"><spann>Latest</spann></a></li>
+
+        </ul>
+    </nav>
+
+
+
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="blog-grid">
+      <!-- Blog Card 1 -->
+      <div class="blog-card">
+        <img src="img/1.png"?text=Blog+1" alt="Blog 1">
+<h3>Athletics
+
+</h3>        <p>The World Indoor Athletics Championships commence today in Nanjing, China, running from March 21 to 23. Spain is represented by 13 athletes, including Lorea Ibarzabal and Esther Guerrero. The event features various track and field competitions over the three days. ​
+
+
+</p>
+        <a href="#">Sport</a>
+      </div>
+
+      <!-- Blog Card 2 -->
+      <div class="blog-card">
+        <img src="img/2.png" alt="Blog 2">
+        <h3>Basketball
+
+</h3>
+        <p>The 2025 Women's NCAA Basketball Tournament began on March 19 and will conclude with the National Championship on April 6. The tournament starts with the First Four play-in round, featuring two No. 11 seeds and two No. 16 seeds. This year's top-seeded teams are UCLA, South Carolina, USC, and Texas. Columbia University faces Washington in a First Four matchup after narrowly losing last year. The Round of 64 begins on March 21. All games will be broadcast across ESPN and ABC networks, including ABC, ESPN, ESPN2, ESPNU, and ESPNews. ​
+
+</p>
+        <a href="#">Sport</a>
+      </div>
+
+      <!-- Blog Card 3 -->
+      <div class="blog-card">
+        <img src="img/3.png" alt="Blog 3">
+        <h3>Motorsport
+ </h3>
+        <p>The Formula 1 season continues with the Chinese Grand Prix this weekend at the Shanghai International Circuit. The event includes the first of six sprint races this year. Lewis Hamilton, now racing with Ferrari, aims to improve after a tenth-place finish in Australia. The Grand Prix is scheduled for 7:00 AM UK time on Sunday. ​
+
+</p>
+        <a href="#">Sport</a>
+      </div>
+
+
+    <!-- Blog Card 4 -->
+      <div class="blog-card">
+        <img src="img/4.png" alt="Blog 3">
+        <h3>Wrestling</h3>
+        <p>The Minnesota Golden Gophers wrestling team is participating in the NCAA Championships starting today in Philadelphia. Gable Steveson seeks his third national title, and the team aims for its best finish under coach Brandon Eggum. Coverage is available on ESPN networks. ​
+
+</p>
+        <a href="#">Sport</a>
+      </div>
+    <!-- Blog Card 5 -->
+      <div class="blog-card">
+        <img src="img/5.png"?text=Blog+3" alt="Blog 3">
+        <h3>Middle East Conflict
+
+        </h3>
+        <p>sraeli Airstrikes in Gaza: On March 18, Israel launched extensive airstrikes on the Gaza Strip, effectively ending a ceasefire that had been in place since January 19. The attacks resulted in over 400 Palestinian deaths, including 263 women and children, marking one of the deadliest days since the conflict began in October 2023
+</p>
+        <a href="#">World</a>
+      </div>
+    <!-- Blog Card 6 -->
+      <div class="blog-card">
+        <img src="img/6.png" alt="Blog 3">
+        <h3>United States
+
+
+</h3>
+        <p> The Trump administration has set a March 21 deadline for New York City to end its congestion pricing program, which was implemented to reduce traffic in Manhattan's central business district and fund public transportation improvements.
+</p>
+        <a href="#">World</a>
+      </div>
+    <!-- Blog Card 7 -->
+      <div class="blog-card">
+        <img src="img/7.png" alt="Blog 3">
+        <h3>Economic Indicators
+
+        </h3>
+        <p>: The American Chemistry Council reports that the Leading Economic Index (LEI) has increased by 0.3%, retail sales have risen by 0.2%, and chemical production is up by 0.8%.
+</p>
+        <a href="#">World</a>
+      </div>
+    <!-- Blog Card 8 -->
+      <div class="blog-card">
+        <img src="img/8.png" alt="Blog 3">
+        <h3>Entertainment
+
+        </h3>
+        <p> The Arlington Museum of Art is hosting "The Princess Diana: Accredited Access Exhibition," featuring a collection of photographs taken by Diana's trusted friend and official royal photographer, the late Anwar Hussein, and his sons
+</p>
+        <a href="#">Lifestyle</a>
+      </div>
+
+      
+      <!-- Blog Card 9 -->
+      <div class="blog-card">
+        <img src="img/9.png" alt="Blog 4">
+        <h3>Preparations for Potential Conflict</h3>
+        <p> European countries are preparing for potential large-scale conflicts amid fears of a Russian invasion.
+</p>
+        <a href="#">Middle East
+
+        </a>
+      </div>
+      
+    </div>
+ <hr> </div>
+  <div class="container">
+    <!-- Blog Post 1 -->
+    <div class="blog-post">
+      <!-- Fixed Card Box with Image -->
+      <div class="card-box">
+        <img src="img/10.png" alt="Blog 1">
+      </div>
+
+      <!-- Text Content -->
+      <div class="content">
+        <h2>United States
+
+        </h2>
+        <p>The United States has dropped to its lowest position ever in the World Happiness Report, now ranking 24th</p>
+        <a href="#">US-Politics</a>
+      </div>
+    </div>
+
+    <!-- Blog Post 2 -->
+    <div class="blog-post">
+      <!-- Fixed Card Box with Image -->
+      <div class="card-box">
+        <img src="img/11.png" alt="Blog 2">
+      </div>
+
+      <!-- Text Content -->
+      <div class="content">
+        <h2>Ukraine's Drone Strike on Russian Airfield
+
+</h2>
+        <p> Ukraine conducted a drone strike on a major Russian strategic bomber airfield, triggering a significant explosion and fire approximately 700 km (435 miles) from the front lines.</p>
+        <a href="#">World</a>
+      </div>
+    </div>
+
+    <!-- Blog Post 3 -->
+    <div class="blog-post">
+      <!-- Fixed Card Box with Image -->
+      <div class="card-box">
+        <img src="img/12.png" alt="Blog 3">
+      </div>
+
+      <!-- Text Content -->
+      <div class="content">
+        <h2> Discovery of Oxygen in Distant Galaxy
+</h2>
+        <p>Astronomers have detected oxygen in the most distant galaxy ever discovered, offering further evidence that stars in the early universe matured far quicker than previously thought possible.</p>
+        <a href="#">climate-crisis</a>
+      </div>
+    </div><hr>
+  <!-- next layout -->
+     
+
+  <!-- next layout -->
+    <hr>
+ <div class="vertical-line"></div>
+             <style>
+                        * {
+                            margin: 0;
+                            padding: 0;
+                            box-sizing: border-box;
+                            font-family: Arial, sans-serif;
+                        }
+                
+                        .footer {
+                            background: #2f2f2f;
+                            color: #fff;
+                            padding: 50px 20px;
+                            line-height: 1.6;
+                        }
+                
+                        .footer-content {
+                            max-width: 1200px;
+                            margin: 0 auto;
+                            display: grid;
+                            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                            gap: 30px;
+                        }
+                
+                        .footer-section h3 {
+                            color: #fff;
+                            margin-bottom: 20px;
+                            font-size: 18px;
+                        }
+                
+                        .footer-about p {
+                            margin-bottom: 15px;
+                        }
+                
+                        .newsletter-input {
+                            display: flex;
+                            margin-top: 15px;
+                        }
+                
+                        .newsletter-input input {
+                            padding: 10px;
+                            border: none;
+                            width: 70%;
+                        }
+                
+                        .newsletter-input button {
+                            padding: 10px 15px;
+                            background: #007bff;
+                            border: none;
+                            color: white;
+                            cursor: pointer;
+                        }
+                
+                        .news-item {
+                            margin-bottom: 20px;
+                        }
+                
+                        .news-date {
+                            color: #888;
+                            font-size: 14px;
+                            margin-top: 5px;
+                        }
+                
+                        .footer-links {
+                            display: grid;
+                            grid-template-columns: repeat(2, 1fr);
+                            gap: 10px;
+                        }
+                
+                        .footer-links a {
+                            color: #ccc;
+                            text-decoration: none;
+                            display: block;
+                        }
+                
+                        .footer-links a:hover {
+                            color: #fff;
+                        }
+                
+                        .copyright {
+                            text-align: center;
+                            margin-top: 50px;
+                            padding-top: 30px;
+                            border-top: 1px solid #444;
+                            color: #888;
+                        }spann{
+                            color: rgb(247, 128, 17);
+                        }
+                
+                        @media (max-width: 768px) {
+                            .footer-content {
+                                grid-template-columns: 1fr;
+                            }
+                        }
+                    </style>
+                
+                
+                    <footer class="footer">
+                        <div class="footer-content">
+                            <div class="footer-section footer-about">
+                                <h3>About</h3>
+                                <p>Ghori Town,<br>Islamabad, 44000, Pakistan</p>
+                                <p>+92 319 972 9298</p>
+                                <p>mindmentor2025@gmail.com</p>
+                                <div class="newsletter-input">
+                                    <input type="email" placeholder="Enter email address">
+                                    <button>Submit</button>
+                                </div>
+                            </div>
+                
+                            <div class="footer-section">
+                                <h3>Latest News</h3>
+                                <div class="news-item">
+                                    <p>Trump New Policies could be game changer for america</p>
+                                    <div class="news-date">Mar. 11, 2020  Admin  19</div>
+                                </div>
+                                <div class="news-item">
+                                    <p>Ukrain President went to Saudi Arabia For Meeting with highness</p>
+                                    <div class="news-date">Mar. 11, 2020  Admin  19</div>
+                                </div>
+                            </div>
+                
+                            <div class="footer-section">
+                                <h3>Information</h3>
+                                <div class="footer-links">
+                                    <div>
+                                        <a href="https://viora4.netlify.app/">Home</a>
+                                        <a href="https://viora4-news-blogs.netlify.app/">News</a>
+                                          <a href="https://viora4-blogs.netlify.app/">Blogs</a>
+                                                  <a href="https://viora4-latest.netlify.app/"><spann>Latest</spann></a>
+
+
+                                        <a href="https://nouman007pro.github.io/privacy.github.io/">Privacy</a>
+                                        <a href=""></a>
+                                    </div>
+                                    <div>
+                                        <a href="#">Help & Support</a>
+                                        <a href="#instagram"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="copyright">
+                            <p>Copyright ©2025 All rights reserved.</p>
+                            <p>This Website Created ♥ by viora4.netlify.app Team</p>
+                        </div>
+                    </footer>
+        </body>
+</html>
